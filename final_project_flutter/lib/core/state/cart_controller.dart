@@ -1,6 +1,7 @@
 import 'package:get/get.dart';
 
 class CartController extends GetxController {
+  //Khai báo Map
   var items = <int, int>{}.obs;
 
   void increment(int itemId) {
