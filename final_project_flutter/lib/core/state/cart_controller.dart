@@ -19,7 +19,6 @@ class CartController extends GetxController {
     if (items.containsKey(itemId) && items[itemId]! > 0) {
       items[itemId] = items[itemId]! - 1;
       if (items[itemId] == 0) {
-        items.remove(itemId);
         Get.defaultDialog(
           title: "Confirmation",
           titleStyle: TextStyle(color: AppColor.blue),
@@ -34,7 +33,6 @@ class CartController extends GetxController {
           },
           onCancel: () {
             increment(itemId);
-            // Get.back();
           },
         );
       }
@@ -54,3 +52,8 @@ class CartController extends GetxController {
     return total;
   }
 }
+
+
+
+/*Làm thế nào để khi State về 0 thì sẽ xóa sản phẩm đó khỏi Cart
+  Set IconTheme thì mặc định luôn, còn nếu muốn chỉnh sửa 1 phần thôi thì sao*/

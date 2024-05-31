@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:final_project_flutter/core/colors/color.dart';
 import 'package:final_project_flutter/core/state/cart_controller.dart';
 import 'package:final_project_flutter/pages/home_page/home_page_controller.dart';
@@ -34,11 +35,12 @@ class CartItemSample extends StatelessWidget {
                   height: 70,
                   width: 70,
                   margin: EdgeInsets.only(right: 15),
-                  child: Image.network(
-                    h.homepageList[i]['image'],
-                    errorBuilder: (context, error, stackTrace) {
-                      return Icon(Icons.error);
-                    },
+                  child: CachedNetworkImage(
+                    imageUrl: h.homepageList[i]['image'],
+                    placeholder: (context, url) =>
+                        Center(child: CircularProgressIndicator()),
+                    errorWidget: (context, url, error) => Icon(Icons
+                        .error), // Widget hiển thị khi xảy ra lỗi khi tải hình ảnh
                   ),
                 ),
                 Expanded(

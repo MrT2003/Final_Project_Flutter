@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:final_project_flutter/core/colors/color.dart';
 import 'package:final_project_flutter/pages/home_page/home_page_controller.dart';
 import 'package:flutter/material.dart';
@@ -64,10 +65,14 @@ class ItemsWidget extends StatelessWidget {
                         'price': h.homepageList[i]['price'].toString(),
                       }),
                       child: Container(
-                        child: Image.network(
-                          h.homepageList[i]['image'],
-                          width: 120,
-                          height: 120,
+                        child: CachedNetworkImage(
+                          imageUrl: h.homepageList[i]['image'],
+                          placeholder: (context, url) =>
+                              Center(child: CircularProgressIndicator()),
+                          errorWidget: (context, url, error) => Icon(Icons
+                              .error), // Widget hiển thị khi xảy ra lỗi khi tải hình ảnh
+                          width: 120, // Độ rộng của ảnh
+                          height: 120, // Độ cao của ảnh
                         ),
                       ),
                     ),
