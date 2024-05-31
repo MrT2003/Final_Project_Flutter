@@ -16,7 +16,7 @@ class BottomNavigationBar_2 extends StatelessWidget {
       bottomNavigationBar: Obx(
         () => CurvedNavigationBar(
           animationCurve: Curves.easeInOut,
-          animationDuration: Duration(milliseconds: 600),
+          animationDuration: Duration(milliseconds: 400),
           color: AppColor.blue,
           index: n.selectedIndex.value,
           backgroundColor: Colors.transparent,

@@ -61,9 +61,32 @@ class CartItemSample extends StatelessWidget {
                               overflow: TextOverflow.ellipsis,
                             ),
                           ),
-                          Icon(
-                            Icons.delete,
-                            color: Colors.red,
+                          GestureDetector(
+                            onTap: () {
+                              // Hiển thị hộp thoại xác nhận trước khi xóa mục
+                              Get.defaultDialog(
+                                title: "Confirmation",
+                                titleStyle: TextStyle(color: AppColor.blue),
+                                middleText:
+                                    "Do you really want to remove this item?",
+                                middleTextStyle: TextStyle(color: Colors.black),
+                                textConfirm: "Yes",
+                                buttonColor: AppColor.blue,
+                                textCancel: "No",
+                                onConfirm: () {
+                                  // Xóa mục hàng khỏi giỏ hàng
+                                  cart.items.remove(i);
+                                  Get.back();
+                                },
+                                onCancel: () {
+                                  // Get.back();
+                                },
+                              );
+                            },
+                            child: Icon(
+                              Icons.delete,
+                              color: Colors.red,
+                            ),
                           ),
                         ],
                       ),

@@ -1,8 +1,10 @@
 import 'package:final_project_flutter/core/colors/color.dart';
+import 'package:final_project_flutter/core/state/cart_controller.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class CartBottomNavBar extends StatelessWidget {
-  const CartBottomNavBar({super.key});
+  final CartController cart = Get.put(CartController());
 
   @override
   Widget build(BuildContext context) {
@@ -25,11 +27,13 @@ class CartBottomNavBar extends StatelessWidget {
                       fontSize: 22,
                     ),
               ),
-              Text(
-                "\$250",
-                style: Theme.of(context).textTheme.titleLarge?.copyWith(
-                      fontSize: 25,
-                    ),
+              Obx(
+                () => Text(
+                  '\$${cart.getTotalPrice().toStringAsFixed(2)}',
+                  style: Theme.of(context).textTheme.titleLarge?.copyWith(
+                        fontSize: 25,
+                      ),
+                ),
               ),
             ],
           ),

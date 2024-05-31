@@ -31,11 +31,11 @@ class CategoriesWidget extends StatelessWidget {
                     // crossAxisAlignment: CrossAxisAlignment.center,
                     // mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Image.network(
-                        h.homepageList[i]['image'],
-                        width: 40,
-                        height: 40,
-                      ),
+                      // Image.network(
+                      //   h.homepageList[i]['image'],
+                      //   width: 40,
+                      //   height: 40,
+                      // ),
                     ],
                   ),
                 ),
