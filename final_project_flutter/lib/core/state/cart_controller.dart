@@ -28,6 +28,7 @@ class CartController extends GetxController {
           buttonColor: AppColor.blue,
           textCancel: "No",
           onConfirm: () {
+            h.removeProduct(itemId);
             items.remove(itemId);
             Get.back();
           },

@@ -23,7 +23,7 @@ class ItemsWidget extends StatelessWidget {
           crossAxisCount: 2,
           shrinkWrap: true,
           children: [
-            for (int i = 14; i < 20; i++)
+            for (int i = 14; i < h.homepageList.length; i++)
               Container(
                 // height: 250,
                 /*Card*/
