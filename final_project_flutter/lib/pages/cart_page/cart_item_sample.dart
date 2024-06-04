@@ -49,7 +49,7 @@ class CartItemSample extends StatelessWidget {
                       width: 70,
                       margin: EdgeInsets.only(right: 15),
                       child: CachedNetworkImage(
-                        imageUrl: cartpagecontroller.cartList[index]['image'],
+                        imageUrl: product['image'],
                         placeholder: (context, url) =>
                             Center(child: CircularProgressIndicator()),
                         errorWidget: (context, url, error) => Icon(Icons.error),
@@ -65,7 +65,7 @@ class CartItemSample extends StatelessWidget {
                             children: [
                               Flexible(
                                 child: Text(
-                                  cartpagecontroller.cartList[index]['title'],
+                                  product['title'],
                                   style: Theme.of(context)
                                       .textTheme
                                       .titleLarge
@@ -87,9 +87,8 @@ class CartItemSample extends StatelessWidget {
                                     buttonColor: AppColor.blue,
                                     textCancel: "No",
                                     onConfirm: () {
-                                      cartpagecontroller.removeProductFromCart(
-                                          cartpagecontroller.cartList[index]
-                                              ['id']);
+                                      cartpagecontroller
+                                          .removeProductFromCart(product['id']);
                                       Get.back();
                                     },
                                     onCancel: () {},
@@ -107,7 +106,7 @@ class CartItemSample extends StatelessWidget {
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
                               Text(
-                                '\$${cartpagecontroller.cartList[index]['price'].toString()}',
+                                '\$${product['price'].toString()}',
                                 style: Theme.of(context)
                                     .textTheme
                                     .titleLarge

@@ -1,15 +1,21 @@
 import 'package:final_project_flutter/core/themes/theme.dart';
+import 'package:final_project_flutter/firebase_options.dart';
 import 'package:final_project_flutter/pages/cart_page/cart_page.dart';
 import 'package:final_project_flutter/pages/home_page/bottom_navigation_bar.dart';
 import 'package:final_project_flutter/pages/home_page/my_home_page.dart';
 import 'package:final_project_flutter/pages/item_page/item_page.dart';
 import 'package:final_project_flutter/pages/login/login_page.dart';
 import 'package:final_project_flutter/pages/profile_page/profile_page.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 // import 'package:badges/badges.dart';
 
-void main() {
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
   runApp(const MyApp());
 }
 
