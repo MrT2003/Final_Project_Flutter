@@ -1,4 +1,5 @@
 import 'package:final_project_flutter/core/themes/theme.dart';
+import 'package:final_project_flutter/features/authetication/authentication_repository.dart';
 import 'package:final_project_flutter/firebase_options.dart';
 import 'package:final_project_flutter/pages/cart_page/cart_page.dart';
 import 'package:final_project_flutter/pages/home_page/bottom_navigation_bar.dart';
@@ -14,8 +15,8 @@ import 'package:get/get.dart';
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(
-    options: DefaultFirebaseOptions.currentPlatform,
-  );
+    options: DefaultFirebaseOptions.currentPlatform
+  ).then((value) => Get.put(AuthenticationRepository()));
   runApp(const MyApp());
 }
 

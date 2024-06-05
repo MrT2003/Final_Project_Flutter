@@ -140,7 +140,12 @@ class SignUpPage extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 25.0),
                 child: ElevatedButton(
-                    onPressed: () => null,
+                    onPressed: () {
+                      if (_formKey.currentState!.validate()) {
+                        SignUpController.instance.registerUser(
+                            sign.email.text.trim(), sign.password.text.trim());
+                      } else {}
+                    },
                     style: ElevatedButton.styleFrom(
                       shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(10)),
