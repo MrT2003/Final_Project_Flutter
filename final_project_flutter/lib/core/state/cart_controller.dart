@@ -1,11 +1,14 @@
 import 'package:final_project_flutter/core/colors/color.dart';
+import 'package:final_project_flutter/pages/cart_page/controller/cart_page_controller.dart';
 import 'package:final_project_flutter/pages/home_page/home_page_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class CartController extends GetxController {
   final HomePageController h = Get.put(HomePageController());
+  final CartPageController cart = Get.put(CartPageController());
   var items = <int, int>{}.obs;
+  var selectedProductId = <int>[].obs;
 
   void increment(int itemId) {
     if (items.containsKey(itemId)) {
@@ -28,7 +31,7 @@ class CartController extends GetxController {
           buttonColor: AppColor.blue,
           textCancel: "No",
           onConfirm: () {
-            h.removeProduct(itemId);
+            cart.removeProductFromCart(itemId);
             items.remove(itemId);
             Get.back();
           },
@@ -41,7 +44,7 @@ class CartController extends GetxController {
   }
 
   int getQuantity(int itemId) {
-    return items[itemId] ?? 1;
+    return items[itemId] ?? 0;
   }
 
   double getTotalPrice() {
@@ -51,5 +54,13 @@ class CartController extends GetxController {
       total += itemPrice * quantity;
     });
     return total;
+  }
+
+  void toggleProduct(int id) {
+    if (selectedProductId.contains(id)) {
+      selectedProductId.remove(id);
+    } else {
+      selectedProductId.add(id);
+    }
   }
 }

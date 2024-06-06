@@ -11,8 +11,7 @@ class CartItemSample extends StatelessWidget {
   final CartController cart = Get.put(CartController());
   final HomePageController h = Get.put(HomePageController());
   final CartPageController cartpagecontroller = Get.put(CartPageController());
-
-  final selectedProductId = 0.obs;
+  final CartController cartController = Get.find();
 
   @override
   Widget build(BuildContext context) {
@@ -41,14 +40,10 @@ class CartItemSample extends StatelessWidget {
                 child: Row(
                   children: [
                     Obx(() => Checkbox(
-                          value: selectedProductId.contains(product['id']),
+                          value: cart.selectedProductId.contains(product['id']),
                           activeColor: AppColor.blue,
                           onChanged: (bool? value) {
-                            if (value == true) {
-                              selectedProductId.add(product['id']);
-                            } else {
-                              selectedProductId.remove(product['id']);
-                            }
+                            cart.toggleProduct(product['id']);
                           },
                         )),
                     Container(
@@ -83,6 +78,7 @@ class CartItemSample extends StatelessWidget {
                               ),
                               GestureDetector(
                                 onTap: () {
+                                  print('error in here');
                                   Get.defaultDialog(
                                     title: "Confirmation",
                                     titleStyle: TextStyle(color: AppColor.blue),
@@ -98,7 +94,9 @@ class CartItemSample extends StatelessWidget {
                                           .removeProductFromCart(product['id']);
                                       Get.back();
                                     },
-                                    onCancel: () {},
+                                    onCancel: () {
+                                      // Get.back();
+                                    },
                                   );
                                 },
                                 child: Icon(
@@ -170,8 +168,7 @@ class CartItemSample extends StatelessWidget {
                                       ],
                                     ),
                                     child: GestureDetector(
-                                      onTap: () => cart.decrement(
-                                          h.homepageList[index]['id']),
+                                      onTap: () => cart.decrement(index),
                                       child: Icon(
                                         CupertinoIcons.minus,
                                         size: 18,
