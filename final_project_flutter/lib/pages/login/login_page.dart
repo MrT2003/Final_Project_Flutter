@@ -1,25 +1,13 @@
 import 'package:final_project_flutter/core/colors/color.dart';
+import 'package:final_project_flutter/features/authetication/authentication_repository.dart';
 import 'package:final_project_flutter/pages/home_page/bottom_navigation_bar.dart';
+import 'package:final_project_flutter/pages/register/sign_up_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-void main() {
-  runApp(const MyApp());
-}
-
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      home: const LoginPage(),
-    );
-  }
-}
-
 class LoginPage extends StatelessWidget {
-  const LoginPage({super.key});
+  final SignUpController sign = Get.put(SignUpController());
+  final _formKey = GlobalKey<FormState>();
 
   @override
   Widget build(BuildContext context) {
@@ -54,41 +42,93 @@ class LoginPage extends StatelessWidget {
               ),
             ),
             const SizedBox(height: 30),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 25.0),
-              child: TextField(
-                decoration: InputDecoration(
-                  filled: true,
-                  fillColor: Colors.white,
-                  hintText: 'Email',
-                  hintStyle: TextStyle(color: AppColor.blue, fontSize: 18),
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(10),
+            Form(
+              key: _formKey,
+              child: Column(
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 25.0),
+                    child: TextFormField(
+                      controller: sign.email,
+                      decoration: InputDecoration(
+                        filled: true,
+                        fillColor: Colors.white,
+                        hintText: 'Email',
+                        hintStyle:
+                            TextStyle(color: AppColor.blue, fontSize: 18),
+                        border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(10),
+                        ),
+                        prefixIcon: Icon(
+                          Icons.email,
+                          color: AppColor.blue,
+                        ),
+                      ),
+                      validator: (value) {
+                        if (value == null || value.isEmpty) {
+                          return 'Please enter your email';
+                        } else if (!RegExp(r'^[^@]+@[^@]+\.[^@]+')
+                            .hasMatch(value)) {
+                          return 'Please enter a valid email address';
+                        }
+                        return null;
+                      },
+                    ),
                   ),
-                ),
-              ),
-            ),
-            const SizedBox(height: 10),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 25.0),
-              child: TextField(
-                obscureText: true,
-                decoration: InputDecoration(
-                  filled: true,
-                  fillColor: AppColor.white,
-                  hintText: 'Password',
-                  hintStyle: TextStyle(color: AppColor.blue, fontSize: 18),
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(10),
+                  const SizedBox(height: 10),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 25.0),
+                    child: TextFormField(
+                      controller: sign.password,
+                      obscureText: true,
+                      decoration: InputDecoration(
+                        filled: true,
+                        fillColor: AppColor.white,
+                        hintText: 'Password',
+                        hintStyle:
+                            TextStyle(color: AppColor.blue, fontSize: 18),
+                        border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(10),
+                        ),
+                        prefixIcon: Icon(
+                          Icons.lock,
+                          color: AppColor.blue,
+                        ),
+                      ),
+                      validator: (value) {
+                        if (value == null || value.isEmpty) {
+                          return 'Please enter your password';
+                        } else if (value.length < 6) {
+                          return 'Password must be at least 6 characters long';
+                        }
+                        return null;
+                      },
+                    ),
                   ),
-                ),
+                ],
               ),
             ),
             const SizedBox(height: 10),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 25.0),
               child: ElevatedButton(
-                  onPressed: () => Get.to(BottomNavigationBar_2()),
+                  onPressed: () async {
+                    if (_formKey.currentState!.validate()) {
+                      var result = await sign.loginUser(
+                          sign.email.text.trim(), sign.password.text.trim());
+                      if (result == 'success') {
+                        Get.off(() => BottomNavigationBar_2());
+                      } else {
+                        Get.snackbar(
+                          'Login Failed',
+                          result,
+                          snackPosition: SnackPosition.BOTTOM,
+                          backgroundColor: Colors.redAccent,
+                          colorText: Colors.white,
+                        );
+                      }
+                    }
+                  },
                   style: ElevatedButton.styleFrom(
                     shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(10)),

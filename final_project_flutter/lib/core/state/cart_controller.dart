@@ -41,7 +41,7 @@ class CartController extends GetxController {
   }
 
   int getQuantity(int itemId) {
-    return items[itemId] ?? 0;
+    return items[itemId] ?? 1;
   }
 
   double getTotalPrice() {
@@ -53,8 +53,3 @@ class CartController extends GetxController {
     return total;
   }
 }
-
-
-
-/*Làm thế nào để khi State về 0 thì sẽ xóa sản phẩm đó khỏi Cart
-  Set IconTheme thì mặc định luôn, còn nếu muốn chỉnh sửa 1 phần thôi thì sao*/

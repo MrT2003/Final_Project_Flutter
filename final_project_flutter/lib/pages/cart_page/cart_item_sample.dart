@@ -12,6 +12,8 @@ class CartItemSample extends StatelessWidget {
   final HomePageController h = Get.put(HomePageController());
   final CartPageController cartpagecontroller = Get.put(CartPageController());
 
+  final selectedProductId = 0.obs;
+
   @override
   Widget build(BuildContext context) {
     return Obx(() {
@@ -38,12 +40,17 @@ class CartItemSample extends StatelessWidget {
                 ),
                 child: Row(
                   children: [
-                    Radio(
-                      value: "",
-                      groupValue: "",
-                      activeColor: AppColor.blue,
-                      onChanged: (index) => null,
-                    ),
+                    Obx(() => Checkbox(
+                          value: selectedProductId.contains(product['id']),
+                          activeColor: AppColor.blue,
+                          onChanged: (bool? value) {
+                            if (value == true) {
+                              selectedProductId.add(product['id']);
+                            } else {
+                              selectedProductId.remove(product['id']);
+                            }
+                          },
+                        )),
                     Container(
                       height: 70,
                       width: 70,
@@ -184,13 +191,6 @@ class CartItemSample extends StatelessWidget {
               );
             });
       }
-
-      // return Column(
-      //   children: [
-      //     for (int i = 1; i < filteredProducts.length; i++)
-
-      //   ],
-      // );
     });
   }
 }

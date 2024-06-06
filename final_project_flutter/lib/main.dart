@@ -2,11 +2,10 @@ import 'package:final_project_flutter/core/themes/theme.dart';
 import 'package:final_project_flutter/features/authetication/authentication_repository.dart';
 import 'package:final_project_flutter/firebase_options.dart';
 import 'package:final_project_flutter/pages/cart_page/cart_page.dart';
-import 'package:final_project_flutter/pages/home_page/bottom_navigation_bar.dart';
 import 'package:final_project_flutter/pages/home_page/my_home_page.dart';
 import 'package:final_project_flutter/pages/item_page/item_page.dart';
-import 'package:final_project_flutter/pages/login/login_page.dart';
 import 'package:final_project_flutter/pages/profile_page/profile_page.dart';
+import 'package:final_project_flutter/pages/welcome_page/welcome_page.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -14,9 +13,8 @@ import 'package:get/get.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp(
-    options: DefaultFirebaseOptions.currentPlatform
-  ).then((value) => Get.put(AuthenticationRepository()));
+  await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform)
+      .then((value) => Get.put(AuthenticationRepository()));
   runApp(const MyApp());
 }
 
@@ -29,6 +27,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       theme: MyAppTheme.lightTheme,
+      transitionDuration: Duration(milliseconds: 500),
       initialRoute: '/',
       getPages: [
         // GetPage(name: '/', page: () => BottomNavigationBar_2()),
@@ -37,7 +36,7 @@ class MyApp extends StatelessWidget {
         GetPage(name: '/itemPage', page: () => ItemPage()),
         GetPage(name: '/profilePage', page: () => ProfilePage()),
       ],
-      home: LoginPage(),
+      home: WelcomePage(),
     );
   }
 }

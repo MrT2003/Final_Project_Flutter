@@ -4,6 +4,23 @@ import 'package:final_project_flutter/pages/cart_page/cart_bottom_nav_bar.dart';
 import 'package:final_project_flutter/pages/cart_page/cart_item_sample.dart';
 import 'package:flutter/material.dart';
 
+void main() {
+  runApp(MyApp());
+}
+
+class MyApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      title: 'Cart Page',
+      theme: ThemeData(
+        primarySwatch: Colors.blue,
+      ),
+      home: CartPage(),
+    );
+  }
+}
+
 class CartPage extends StatelessWidget {
   const CartPage({super.key});
 
