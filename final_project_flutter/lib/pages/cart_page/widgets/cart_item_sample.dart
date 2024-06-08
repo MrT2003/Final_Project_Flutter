@@ -1,7 +1,7 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:final_project_flutter/core/colors/color.dart';
 import 'package:final_project_flutter/core/state/cart_controller.dart';
-import 'package:final_project_flutter/pages/cart_page/controller/cart_page_controller.dart';
+import 'package:final_project_flutter/pages/cart_page/cart_page_controller.dart';
 import 'package:final_project_flutter/pages/home_page/home_page_controller.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';

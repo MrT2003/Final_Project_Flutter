@@ -1,7 +1,7 @@
 import 'package:final_project_flutter/core/colors/color.dart';
-import 'package:final_project_flutter/pages/home_page/categories.dart';
-import 'package:final_project_flutter/pages/home_page/home_app_bar.dart';
-import 'package:final_project_flutter/pages/home_page/items_widget.dart';
+import 'package:final_project_flutter/pages/home_page/widgets/categories.dart';
+import 'package:final_project_flutter/pages/home_page/widgets/home_app_bar.dart';
+import 'package:final_project_flutter/pages/home_page/widgets/items_widget.dart';
 import 'package:flutter/material.dart';
 
 class MyHomePage extends StatelessWidget {

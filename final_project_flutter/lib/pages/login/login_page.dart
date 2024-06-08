@@ -1,6 +1,6 @@
 import 'package:final_project_flutter/core/colors/color.dart';
 import 'package:final_project_flutter/features/authetication/authentication_repository.dart';
-import 'package:final_project_flutter/pages/home_page/bottom_navigation_bar.dart';
+import 'package:final_project_flutter/pages/home_page/widgets/bottom_navigation_bar.dart';
 import 'package:final_project_flutter/pages/register/sign_up_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';

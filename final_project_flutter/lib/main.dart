@@ -1,8 +1,8 @@
 import 'package:final_project_flutter/core/themes/theme.dart';
 import 'package:final_project_flutter/features/authetication/authentication_repository.dart';
 import 'package:final_project_flutter/firebase_options.dart';
-import 'package:final_project_flutter/pages/cart_page/cart_page.dart';
-import 'package:final_project_flutter/pages/home_page/my_home_page.dart';
+import 'package:final_project_flutter/pages/cart_page/cartpage_view.dart';
+import 'package:final_project_flutter/pages/home_page/homepage_view.dart';
 import 'package:final_project_flutter/pages/item_page/item_page.dart';
 import 'package:final_project_flutter/pages/profile_page/profile_page.dart';
 import 'package:final_project_flutter/pages/welcome_page/welcome_page.dart';

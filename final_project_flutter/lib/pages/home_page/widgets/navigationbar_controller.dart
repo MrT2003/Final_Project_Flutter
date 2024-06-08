@@ -1,6 +1,6 @@
-import 'package:final_project_flutter/pages/cart_page/cart_page.dart';
-import 'package:final_project_flutter/pages/home_page/home_app_bar.dart';
-import 'package:final_project_flutter/pages/home_page/my_home_page.dart';
+import 'package:final_project_flutter/pages/cart_page/cartpage_view.dart';
+import 'package:final_project_flutter/pages/home_page/widgets/home_app_bar.dart';
+import 'package:final_project_flutter/pages/home_page/homepage_view.dart';
 import 'package:final_project_flutter/pages/profile_page/profile_page.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
