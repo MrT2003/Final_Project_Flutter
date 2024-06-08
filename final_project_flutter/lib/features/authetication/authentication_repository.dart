@@ -21,9 +21,10 @@ class AuthenticationRepository extends GetxController {
   }
 
   _setInitialScreen(User? user) {
-    user == null
-        ? Get.offAll(() => const WelcomePage())
-        : Get.offAll(() => BottomNavigationBar_2());
+    // user == null
+    //     ? Get.offAll(() => const WelcomePage())
+    //     : Get.offAll(() => BottomNavigationBar_2());
+    Get.offAll(() => const WelcomePage());
   }
 
   Future<void> createUserWithEmailAndPassword(
@@ -31,6 +32,7 @@ class AuthenticationRepository extends GetxController {
     try {
       await _auth.createUserWithEmailAndPassword(
           email: email, password: password);
+      // Get.offAll(() => WelcomePage());
       firebaseUser.value != null
           ? Get.offAll(() => BottomNavigationBar_2())
           : Get.to(WelcomePage());
@@ -63,5 +65,6 @@ class AuthenticationRepository extends GetxController {
 
   Future<void> logout() async {
     _auth.signOut();
+    Get.offAll(() => WelcomePage());
   }
 }
