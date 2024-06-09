@@ -1,5 +1,5 @@
 import 'package:cached_network_image/cached_network_image.dart';
-import 'package:final_project_flutter/pages/home_page/home_page_controller.dart';
+import 'package:final_project_flutter/pages/home_page/controller/home_page_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -12,11 +12,6 @@ class CategoriesWidget extends StatelessWidget {
     final HomePageController h = Get.find<HomePageController>();
 
     return Obx(() {
-      // if (h.isLoading.value) {
-      // return Center(
-      //   child: CircularProgressIndicator(),
-      // );
-      // } else {
       return SingleChildScrollView(
         scrollDirection: Axis.horizontal,
         child: Row(

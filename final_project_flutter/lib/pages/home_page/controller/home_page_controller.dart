@@ -1,10 +1,10 @@
 import 'package:dio/dio.dart';
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class HomePageController extends GetxController {
   var isLoading = true.obs;
   var homepageList = [].obs;
-  // var cartList = [].obs;
 
   @override
   void onInit() {
