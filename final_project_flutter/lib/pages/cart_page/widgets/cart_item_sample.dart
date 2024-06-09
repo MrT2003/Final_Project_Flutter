@@ -17,7 +17,7 @@ class CartItemSample extends StatelessWidget {
   Widget build(BuildContext context) {
     return Obx(() {
       final filteredProducts = cartpagecontroller.cartList
-          .where((product) => product['id'] >= 1 && product['id'] <= 4)
+          .where((product) => product['id'] >= 1 && product['id'] < 4)
           .toList();
       if (cartpagecontroller.isLoading.value) {
         return Center(

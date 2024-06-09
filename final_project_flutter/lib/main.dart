@@ -9,7 +9,6 @@ import 'package:final_project_flutter/pages/welcome_page/welcome_page.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-// import 'package:badges/badges.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();

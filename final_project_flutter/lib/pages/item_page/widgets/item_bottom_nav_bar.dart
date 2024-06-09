@@ -1,10 +1,11 @@
 import 'package:final_project_flutter/core/colors/color.dart';
+import 'package:final_project_flutter/pages/item_page/item_controller.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class ItemBottomNavBar extends StatelessWidget {
-  const ItemBottomNavBar({super.key});
+  final ItemController itemc = Get.put(ItemController());
 
   @override
   Widget build(BuildContext context) {
@@ -31,7 +32,7 @@ class ItemBottomNavBar extends StatelessWidget {
                 Theme.of(context).textTheme.titleLarge?.copyWith(fontSize: 25),
           ),
           ElevatedButton.icon(
-            onPressed: () => null,
+            onPressed: () => itemc.addItemToCart(),
             icon: Icon(CupertinoIcons.cart_badge_plus),
             label: Text(
               'Add To Cart',

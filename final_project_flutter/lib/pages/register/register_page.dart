@@ -1,4 +1,5 @@
 import 'package:final_project_flutter/core/colors/color.dart';
+import 'package:final_project_flutter/pages/login/login_page.dart';
 import 'package:final_project_flutter/pages/register/sign_up_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -181,21 +182,26 @@ class SignUpPage extends StatelessWidget {
                         child: const Text('Sign up'),
                       ),
                     ),
-                    const SizedBox(height: 10),
-                    const Row(
+                    // const SizedBox(height: 10),
+                    Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Text(
-                          'Not a member',
+                          'Have an account? ',
                           style: TextStyle(
                             color: Colors.black,
                           ),
                         ),
-                        SizedBox(width: 10),
-                        Text(
-                          'Register now',
-                          style: TextStyle(
-                            color: AppColor.blue,
+                        TextButton(
+                          onPressed: () => Get.to(() => LoginPage()),
+                          child: Text(
+                            'Login now',
+                            style: TextStyle(
+                              color: AppColor.blue,
+                            ),
+                          ),
+                          style: TextButton.styleFrom(
+                            minimumSize: Size(0, 0),
                           ),
                         ),
                       ],

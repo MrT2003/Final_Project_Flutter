@@ -1,7 +1,7 @@
 import 'package:clippy_flutter/arc.dart';
 import 'package:final_project_flutter/core/colors/color.dart';
-import 'package:final_project_flutter/pages/item_page/item_app_bar.dart';
-import 'package:final_project_flutter/pages/item_page/item_bottom_nav_bar.dart';
+import 'package:final_project_flutter/pages/item_page/widgets/item_app_bar.dart';
+import 'package:final_project_flutter/pages/item_page/widgets/item_bottom_nav_bar.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
