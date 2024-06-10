@@ -29,7 +29,6 @@ class MyApp extends StatelessWidget {
       transitionDuration: Duration(milliseconds: 500),
       initialRoute: '/',
       getPages: [
-        // GetPage(name: '/', page: () => BottomNavigationBar_2()),
         GetPage(name: '/', page: () => MyHomePage()),
         GetPage(name: '/cartPage', page: () => CartPage()),
         GetPage(name: '/itemPage', page: () => ItemPage()),

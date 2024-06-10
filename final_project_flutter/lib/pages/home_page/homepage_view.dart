@@ -41,87 +41,114 @@ class MyHomePage extends StatelessWidget {
                           Padding(
                             padding:
                                 const EdgeInsets.symmetric(horizontal: 15.0),
-                                child: 
-                            // child: Autocomplete<String>(
-                            //   optionsBuilder:
-                            //       (TextEditingValue textEditingValue) {
-                            //     if (textEditingValue.text.isEmpty) {
-                            //       return const Iterable<String>.empty();
-                            //     }
-                            //     return s.getSuggestions(textEditingValue.text);
-                            //   },
-                            //   onSelected: (String selection) {
-                            //     s.searchProduct(selection);
-                            //     s.search.text = selection;
-                            //   },
-                            //   //Chỉnh sửa giao diện của TextField
-                            //   fieldViewBuilder: (BuildContext context,
-                            //       TextEditingController textEditingController,
-                            //       FocusNode focusNode,
-                            //       VoidCallback onFieldSubmitted) {
-                            //     return TextFormField(
-                            //       controller: s.search,
-                            //       focusNode: focusNode,
-                            //       decoration: InputDecoration(
-                            //         filled: true,
-                            //         fillColor: Colors.white,
-                            //         hintText: 'Search here',
-                            //         hintStyle: Theme.of(context)
-                            //             .textTheme
-                            //             .bodyMedium
-                            //             ?.copyWith(color: Colors.black),
-                            //         border: OutlineInputBorder(
-                            //           borderRadius: BorderRadius.circular(30),
-                            //         ),
-                            //         suffixIcon: Container(
-                            //           margin: EdgeInsets.only(right: 8),
-                            //           child: IconButton(
-                            //             icon: Icon(
-                            //               Icons.camera_alt,
-                            //               color: AppColor.blue,
-                            //             ),
-                            //             onPressed: () {},
-                            //           ),
-                            //         ),
-                            //       ),
-                            //       style: Theme.of(context)
-                            //           .textTheme
-                            //           .bodyMedium
-                            //           ?.copyWith(color: Colors.black),
-                            //     );
-                            //   },
-                            //   optionsViewBuilder: (BuildContext context,
-                            //       AutocompleteOnSelected<String> onSelected,
-                            //       Iterable<String> options) {
-                            //     return Align(
-                            //       alignment: Alignment.topLeft,
-                            //       child: Container(
-                            //         width: MediaQuery.of(context)
-                            //             .size
-                            //             .width /*- 30*/,
-                            //         margin:
-                            //             EdgeInsets.symmetric(horizontal: 15),
-                            //         child: ListView.builder(
-                            //           padding: EdgeInsets.all(0),
-                            //           itemCount: options.length,
-                            //           itemBuilder:
-                            //               (BuildContext context, int index) {
-                            //             final String option =
-                            //                 options.elementAt(index);
-                            //             return ListTile(
-                            //               title: Text(option),
-                            //               onTap: () {
-                            //                 onSelected(option);
-                            //               },
-                            //             );
-                            //           },
-                            //         ),
-                            //       ),
-                            //     );
-                            //   },
-                            // ),
+                            child: Autocomplete<String>(
+                              optionsBuilder:
+                                  (TextEditingValue textEditingValue) {
+                                if (textEditingValue.text.isEmpty) {
+                                  //Iterable là gì
+                                  return Iterable<String>.empty();
+                                }
+                                return s.getSuggestions(textEditingValue.text);
+                              },
+                              onSelected: (String selection) {
+                                s.searchProduct(selection);
+                                Get.toNamed('/itemPage',
+                                    arguments: s.selectedProduct.value);
+                              },
+                              fieldViewBuilder: (BuildContext context,
+                                  TextEditingController textEditingController,
+                                  FocusNode focusNode,
+                                  VoidCallback onFieldSubmitted) {
+                                textEditingController.text = s.search.text;
+                                textEditingController.addListener(() {
+                                  s.search.text = textEditingController.text;
+                                });
+                                return TextFormField(
+                                  controller: textEditingController,
+                                  focusNode: focusNode,
+                                  onFieldSubmitted: (String value) {
+                                    s.selectProduct(value);
+                                    if (s.selectedProduct.value != null) {
+                                      Get.toNamed('/itemPage',
+                                          arguments: s.selectedProduct.value);
+                                    }
+                                  },
+                                  decoration: InputDecoration(
+                                    filled: true,
+                                    fillColor: Colors.white,
+                                    hintText: 'Search here',
+                                    hintStyle: Theme.of(context)
+                                        .textTheme
+                                        .bodyMedium
+                                        ?.copyWith(color: Colors.black),
+                                    border: OutlineInputBorder(
+                                      borderRadius: BorderRadius.circular(30),
+                                    ),
+                                    suffixIcon: Container(
+                                      margin: EdgeInsets.only(right: 8),
+                                      child: IconButton(
+                                        icon: Icon(
+                                          Icons.camera_alt,
+                                          color: AppColor.blue,
+                                        ),
+                                        onPressed: () {},
+                                      ),
+                                    ),
+                                  ),
+                                  style: Theme.of(context)
+                                      .textTheme
+                                      .bodyMedium
+                                      ?.copyWith(color: Colors.black),
+                                );
+                              },
+                              optionsViewBuilder: (BuildContext context,
+                                  AutocompleteOnSelected<String> onSelected,
+                                  Iterable<String> options) {
+                                return Align(
+                                  alignment: Alignment.topLeft,
+                                  child: Material(
+                                    child: Container(
+                                      width: MediaQuery.of(context).size.width -
+                                          30,
+                                      margin:
+                                          EdgeInsets.symmetric(horizontal: 15),
+                                      child: ListView.builder(
+                                        padding: EdgeInsets.all(0),
+                                        itemCount: options.length,
+                                        itemBuilder:
+                                            (BuildContext context, int index) {
+                                          final String option =
+                                              options.elementAt(index);
+                                          final product =
+                                              s.getProductByTitle(option);
+                                          return ListTile(
+                                            title: Text(option),
+                                            leading: product != null &&
+                                                    product['image'] != null
+                                                ? ClipRRect(
+                                                    borderRadius:
+                                                        BorderRadius.circular(
+                                                            50.0),
+                                                    child: Image.network(
+                                                      product['image'],
+                                                      width: 50,
+                                                      height: 50,
+                                                      fit: BoxFit.contain,
+                                                    ),
+                                                  )
+                                                : null,
+                                            onTap: () {
+                                              onSelected(option);
+                                            },
+                                          );
+                                        },
+                                      ),
+                                    ),
+                                  ),
+                                );
+                              },
+                            ),
                           ),
-
                           Container(
                             alignment: Alignment.centerLeft,
                             margin: EdgeInsets.symmetric(
@@ -148,7 +175,6 @@ class MyHomePage extends StatelessWidget {
                     ),
                   ],
                 ),
-                // ),
               );
             }
           },

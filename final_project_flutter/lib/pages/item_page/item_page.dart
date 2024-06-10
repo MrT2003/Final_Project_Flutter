@@ -17,6 +17,8 @@ class ItemPage extends StatelessWidget {
     Colors.orange,
   ];
 
+  final Map<String, dynamic> product = Get.arguments;
+
   ItemPage({super.key});
 
   @override
