@@ -22,11 +22,7 @@ class MyHomePage extends StatelessWidget {
                 child: CircularProgressIndicator(),
               );
             } else {
-              return
-                  // Expanded(
-                  //   /*Tại sao lại dùng expand ở đây */
-                  //   child:
-                  SingleChildScrollView(
+              return SingleChildScrollView(
                 child: Column(
                   children: [
                     HomeAppBar(),
@@ -45,87 +41,85 @@ class MyHomePage extends StatelessWidget {
                           Padding(
                             padding:
                                 const EdgeInsets.symmetric(horizontal: 15.0),
-                            child: Autocomplete<String>(
-                              optionsBuilder:
-                                  (TextEditingValue textEditingValue) {
-                                if (textEditingValue.text.isEmpty) {
-                                  return const Iterable<String>.empty();
-                                }
-                                return s.getSuggestions(textEditingValue.text);
-                              },
-                              onSelected: (String selection) {
-                                s.searchProduct(selection);
-                                s.search.text = selection;
-                              },
-                              fieldViewBuilder: (BuildContext context,
-                                  TextEditingController textEditingController,
-                                  FocusNode focusNode,
-                                  VoidCallback onFieldSubmitted) {
-                                return TextFormField(
-                                  controller: s.search,
-                                  focusNode: focusNode,
-                                  onFieldSubmitted: (value) {
-                                    s.searchProduct(value);
-                                  },
-                                  decoration: InputDecoration(
-                                    filled: true,
-                                    fillColor: Colors.white,
-                                    hintText: 'Search here',
-                                    hintStyle: Theme.of(context)
-                                        .textTheme
-                                        .bodyMedium
-                                        ?.copyWith(color: Colors.black),
-                                    border: OutlineInputBorder(
-                                      borderRadius: BorderRadius.circular(30),
-                                    ),
-                                    suffixIcon: Container(
-                                      margin: EdgeInsets.only(right: 8),
-                                      child: IconButton(
-                                        icon: Icon(
-                                          Icons.camera_alt,
-                                          color: AppColor.blue,
-                                        ),
-                                        onPressed: () {},
-                                      ),
-                                    ),
-                                  ),
-                                  style: Theme.of(context)
-                                      .textTheme
-                                      .bodyMedium
-                                      ?.copyWith(color: Colors.black),
-                                );
-                              },
-                              optionsViewBuilder: (BuildContext context,
-                                  AutocompleteOnSelected<String> onSelected,
-                                  Iterable<String> options) {
-                                return Align(
-                                  alignment: Alignment.topLeft,
-                                  child: Container(
-                                    width:
-                                        MediaQuery.of(context).size.width - 30,
-                                    margin:
-                                        EdgeInsets.symmetric(horizontal: 15),
-                                    child: ListView.builder(
-                                      padding: EdgeInsets.all(0),
-                                      itemCount: options.length,
-                                      itemBuilder:
-                                          (BuildContext context, int index) {
-                                        final String option =
-                                            options.elementAt(index);
-                                        return GestureDetector(
-                                          onTap: () {
-                                            onSelected(option);
-                                          },
-                                          child: ListTile(
-                                            title: Text(option),
-                                          ),
-                                        );
-                                      },
-                                    ),
-                                  ),
-                                );
-                              },
-                            ),
+                                child: 
+                            // child: Autocomplete<String>(
+                            //   optionsBuilder:
+                            //       (TextEditingValue textEditingValue) {
+                            //     if (textEditingValue.text.isEmpty) {
+                            //       return const Iterable<String>.empty();
+                            //     }
+                            //     return s.getSuggestions(textEditingValue.text);
+                            //   },
+                            //   onSelected: (String selection) {
+                            //     s.searchProduct(selection);
+                            //     s.search.text = selection;
+                            //   },
+                            //   //Chỉnh sửa giao diện của TextField
+                            //   fieldViewBuilder: (BuildContext context,
+                            //       TextEditingController textEditingController,
+                            //       FocusNode focusNode,
+                            //       VoidCallback onFieldSubmitted) {
+                            //     return TextFormField(
+                            //       controller: s.search,
+                            //       focusNode: focusNode,
+                            //       decoration: InputDecoration(
+                            //         filled: true,
+                            //         fillColor: Colors.white,
+                            //         hintText: 'Search here',
+                            //         hintStyle: Theme.of(context)
+                            //             .textTheme
+                            //             .bodyMedium
+                            //             ?.copyWith(color: Colors.black),
+                            //         border: OutlineInputBorder(
+                            //           borderRadius: BorderRadius.circular(30),
+                            //         ),
+                            //         suffixIcon: Container(
+                            //           margin: EdgeInsets.only(right: 8),
+                            //           child: IconButton(
+                            //             icon: Icon(
+                            //               Icons.camera_alt,
+                            //               color: AppColor.blue,
+                            //             ),
+                            //             onPressed: () {},
+                            //           ),
+                            //         ),
+                            //       ),
+                            //       style: Theme.of(context)
+                            //           .textTheme
+                            //           .bodyMedium
+                            //           ?.copyWith(color: Colors.black),
+                            //     );
+                            //   },
+                            //   optionsViewBuilder: (BuildContext context,
+                            //       AutocompleteOnSelected<String> onSelected,
+                            //       Iterable<String> options) {
+                            //     return Align(
+                            //       alignment: Alignment.topLeft,
+                            //       child: Container(
+                            //         width: MediaQuery.of(context)
+                            //             .size
+                            //             .width /*- 30*/,
+                            //         margin:
+                            //             EdgeInsets.symmetric(horizontal: 15),
+                            //         child: ListView.builder(
+                            //           padding: EdgeInsets.all(0),
+                            //           itemCount: options.length,
+                            //           itemBuilder:
+                            //               (BuildContext context, int index) {
+                            //             final String option =
+                            //                 options.elementAt(index);
+                            //             return ListTile(
+                            //               title: Text(option),
+                            //               onTap: () {
+                            //                 onSelected(option);
+                            //               },
+                            //             );
+                            //           },
+                            //         ),
+                            //       ),
+                            //     );
+                            //   },
+                            // ),
                           ),
 
                           Container(
