@@ -130,15 +130,25 @@ class MyHomePage extends StatelessWidget {
                                                         BorderRadius.circular(
                                                             50.0),
                                                     child: Image.network(
-                                                      product['image'],
-                                                      width: 50,
-                                                      height: 50,
+                                                      h.homepageList.firstWhere(
+                                                          (element) =>
+                                                              element[
+                                                                  'title'] ==
+                                                              option)['image'],
+                                                      height: 40,
+                                                      width: 40,
                                                       fit: BoxFit.contain,
                                                     ),
                                                   )
                                                 : null,
                                             onTap: () {
-                                              onSelected(option);
+                                              var selectedProduct = h
+                                                  .homepageList
+                                                  .firstWhere((element) =>
+                                                      element['title'] ==
+                                                      option);
+                                              Get.toNamed('/itemPage',
+                                                  arguments: selectedProduct);
                                             },
                                           );
                                         },

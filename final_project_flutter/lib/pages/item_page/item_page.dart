@@ -9,7 +9,7 @@ import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:get/get.dart';
 
 class ItemPage extends StatelessWidget {
-  List<Color> Clrs = [
+  final List<Color> Clrs = [
     Colors.red,
     Colors.green,
     Colors.blue,
@@ -17,12 +17,20 @@ class ItemPage extends StatelessWidget {
     Colors.orange,
   ];
 
-  final Map<String, dynamic> product = Get.arguments;
-
   ItemPage({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final Map<String, dynamic>? product = Get.arguments;
+
+    if (product == null) {
+      return Scaffold(
+        body: Center(
+          child: Text('No product data available.'),
+        ),
+      );
+    }
+
     return SafeArea(
       child: Scaffold(
         backgroundColor: Colors.lightBlue[50],
@@ -32,7 +40,7 @@ class ItemPage extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.all(16.0),
               child: Image.network(
-                Get.arguments['image'],
+                product['image'],
                 height: 300,
               ),
             ),
@@ -51,13 +59,12 @@ class ItemPage extends StatelessWidget {
                         padding: EdgeInsets.only(
                           top: 50,
                           bottom: 20,
-                          // right: 10,
                         ),
                         child: Row(
                           children: [
                             Flexible(
                               child: Text(
-                                Get.arguments['title'],
+                                product['title'],
                                 style: Theme.of(context)
                                     .textTheme
                                     .titleLarge
@@ -140,7 +147,7 @@ class ItemPage extends StatelessWidget {
                       Padding(
                         padding: const EdgeInsets.symmetric(vertical: 12.0),
                         child: Text(
-                          Get.arguments['description'],
+                          product['description'],
                           textAlign: TextAlign.justify,
                           style: TextStyle(
                             color: AppColor.blue,
@@ -211,7 +218,7 @@ class ItemPage extends StatelessWidget {
                             ),
                             Row(
                               children: [
-                                for (int i = 0; i < 5; i++)
+                                for (int i = 0; i < Clrs.length; i++)
                                   Container(
                                     height: 30,
                                     width: 30,
@@ -227,14 +234,6 @@ class ItemPage extends StatelessWidget {
                                             blurRadius: 8,
                                           ),
                                         ]),
-                                    // child: Text(
-                                    //   i.toString(),
-                                    //   style: TextStyle(
-                                    //     fontSize: 18,
-                                    //     fontWeight: FontWeight.bold,
-                                    //     color: AppColor.blue,
-                                    //   ),
-                                    // ),
                                   ),
                               ],
                             ),

@@ -2,7 +2,7 @@ import 'package:final_project_flutter/features/exceptions/signin_email_password_
 import 'package:final_project_flutter/features/exceptions/signup_email_password_failure.dart';
 import 'package:final_project_flutter/pages/home_page/widgets/bottom_navigation_bar.dart';
 import 'package:final_project_flutter/pages/login/login_page.dart';
-import 'package:final_project_flutter/pages/register/register_page.dart';
+import 'package:final_project_flutter/pages/register/sign_up_view.dart';
 import 'package:final_project_flutter/pages/welcome_page/welcome_page.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:get/get.dart';

@@ -1,6 +1,6 @@
 import 'package:final_project_flutter/core/colors/color.dart';
 import 'package:final_project_flutter/pages/login/login_page.dart';
-import 'package:final_project_flutter/pages/register/register_page.dart';
+import 'package:final_project_flutter/pages/register/sign_up_view.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
