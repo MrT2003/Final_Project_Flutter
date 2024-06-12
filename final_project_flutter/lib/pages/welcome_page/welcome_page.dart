@@ -9,7 +9,6 @@ class WelcomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // var height = MediaQuery.of(context).size.height;
     return SafeArea(
       child: Scaffold(
         body: Container(
@@ -24,10 +23,7 @@ class WelcomePage extends StatelessWidget {
               ),
               Text(
                 'Welcome to my app',
-                style: TextStyle(
-                    color: AppColor.blue,
-                    fontSize: 30,
-                    fontWeight: FontWeight.bold),
+                style: Theme.of(context).textTheme.headlineLarge,
               ),
               Row(
                 children: [
@@ -35,9 +31,6 @@ class WelcomePage extends StatelessWidget {
                     child: OutlinedButton(
                       onPressed: () => Get.to(() => LoginPage()),
                       child: Text('Log in'.toUpperCase()),
-                      style: OutlinedButton.styleFrom(
-                        foregroundColor: AppColor.blue,
-                      ),
                     ),
                   ),
                   SizedBox(
@@ -47,10 +40,6 @@ class WelcomePage extends StatelessWidget {
                     child: ElevatedButton(
                       onPressed: () => Get.to(() => SignUpPage()),
                       child: Text('Sign Up'.toUpperCase()),
-                      style: ElevatedButton.styleFrom(
-                        backgroundColor: AppColor.blue,
-                        foregroundColor: AppColor.white,
-                      ),
                     ),
                   ),
                 ],

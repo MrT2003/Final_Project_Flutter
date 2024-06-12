@@ -1,5 +1,5 @@
 import 'package:final_project_flutter/core/colors/color.dart';
-import 'package:final_project_flutter/pages/cart_page/cart_page_controller.dart';
+import 'package:final_project_flutter/pages/cart_page/controller/cart_page_controller.dart';
 import 'package:final_project_flutter/pages/home_page/controller/home_page_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -7,8 +7,10 @@ import 'package:get/get.dart';
 class CartController extends GetxController {
   final HomePageController h = Get.put(HomePageController());
   final CartPageController cart = Get.put(CartPageController());
+  //Map
   var items = <int, int>{}.obs;
-  var selectedProductId = <int>[].obs;
+  //Mảng rỗng
+  var selectedProductId = [].obs;
 
   void increment(int itemId) {
     if (items.containsKey(itemId)) {

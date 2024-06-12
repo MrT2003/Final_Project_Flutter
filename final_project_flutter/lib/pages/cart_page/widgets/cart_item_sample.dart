@@ -1,7 +1,7 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:final_project_flutter/core/colors/color.dart';
-import 'package:final_project_flutter/core/state/cart_controller.dart';
-import 'package:final_project_flutter/pages/cart_page/cart_page_controller.dart';
+import 'package:final_project_flutter/pages/cart_page/controller/cart_controller.dart';
+import 'package:final_project_flutter/pages/cart_page/controller/cart_page_controller.dart';
 import 'package:final_project_flutter/pages/home_page/controller/home_page_controller.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -16,9 +16,11 @@ class CartItemSample extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Obx(() {
+      //filteredProducts
       final filteredProducts = cartpagecontroller.cartList
           .where((product) => product['id'] >= 1 && product['id'] < 4)
           .toList();
+      //Check cartpagecontroller
       if (cartpagecontroller.isLoading.value) {
         return Center(
           child: CircularProgressIndicator(),

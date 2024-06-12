@@ -1,8 +1,6 @@
 import 'package:final_project_flutter/features/exceptions/signin_email_password_failure.dart';
 import 'package:final_project_flutter/features/exceptions/signup_email_password_failure.dart';
 import 'package:final_project_flutter/pages/home_page/widgets/bottom_navigation_bar.dart';
-import 'package:final_project_flutter/pages/login/login_page.dart';
-import 'package:final_project_flutter/pages/register/sign_up_view.dart';
 import 'package:final_project_flutter/pages/welcome_page/welcome_page.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:get/get.dart';
@@ -31,7 +29,6 @@ class AuthenticationRepository extends GetxController {
     try {
       await _auth.createUserWithEmailAndPassword(
           email: email, password: password);
-      // Get.offAll(() => WelcomePage());
       firebaseUser.value != null
           ? Get.offAll(() => BottomNavigationBar_2())
           : Get.to(WelcomePage());
@@ -64,6 +61,7 @@ class AuthenticationRepository extends GetxController {
 
   Future<void> logout() async {
     _auth.signOut();
+    //Có cần offAll ở dưới không
     Get.offAll(() => WelcomePage());
   }
 }

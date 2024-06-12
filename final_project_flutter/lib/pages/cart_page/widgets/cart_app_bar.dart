@@ -8,12 +8,12 @@ class CartAppBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.all(25),
+      padding: const EdgeInsets.all(25),
       child: Row(
         children: [
           InkWell(
             onTap: () => Get.back(),
-            child: Icon(
+            child: const Icon(
               Icons.arrow_back,
             ),
           ),
@@ -24,8 +24,8 @@ class CartAppBar extends StatelessWidget {
               style: Theme.of(context).textTheme.titleLarge,
             ),
           ),
-          Spacer(),
-          Icon(
+          const Spacer(),
+          const Icon(
             Icons.more_vert,
           ),
         ],

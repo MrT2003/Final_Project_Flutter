@@ -1,6 +1,7 @@
 import 'package:final_project_flutter/core/colors/color.dart';
 import 'package:final_project_flutter/pages/cart_page/widgets/cart_app_bar.dart';
 import 'package:final_project_flutter/pages/cart_page/widgets/cart_bottom_nav_bar.dart';
+import 'package:final_project_flutter/pages/cart_page/widgets/cart_coupon.dart';
 import 'package:final_project_flutter/pages/cart_page/widgets/cart_item_sample.dart';
 import 'package:flutter/material.dart';
 
@@ -13,12 +14,10 @@ class CartPage extends StatelessWidget {
       child: Scaffold(
         body: ListView(
           children: [
-            CartAppBar(),
+            const CartAppBar(),
             Container(
               height: 700,
-              /*double.infinity */
-              // padding: EdgeInsets.only(top: 15),
-              decoration: BoxDecoration(
+              decoration: const BoxDecoration(
                 color: Color(0xFFEDECF2),
                 borderRadius: BorderRadius.only(
                   topLeft: Radius.circular(35),
@@ -26,34 +25,9 @@ class CartPage extends StatelessWidget {
                 ),
               ),
               child: Column(
-                // // mainAxisAlignment: MainAxisAlignment.start,
-                // crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   CartItemSample(),
-                  Row(
-                    children: [
-                      Container(
-                        margin:
-                            EdgeInsets.symmetric(vertical: 20, horizontal: 15),
-                        // padding: EdgeInsets.all(10),
-                        decoration: BoxDecoration(
-                            color: AppColor.blue,
-                            borderRadius: BorderRadius.circular(20)),
-                        child: Icon(
-                          Icons.add,
-                          color: Colors.white,
-                        ),
-                      ),
-                      Text(
-                        "Add Coupon Code",
-                        style: TextStyle(
-                          color: AppColor.blue,
-                          fontWeight: FontWeight.bold,
-                          fontSize: 16,
-                        ),
-                      )
-                    ],
-                  ),
+                  CartCoupon(),
                 ],
               ),
             ),

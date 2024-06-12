@@ -3,7 +3,7 @@ import 'package:final_project_flutter/features/authetication/authentication_repo
 import 'package:final_project_flutter/firebase_options.dart';
 import 'package:final_project_flutter/pages/cart_page/cartpage_view.dart';
 import 'package:final_project_flutter/pages/home_page/homepage_view.dart';
-import 'package:final_project_flutter/pages/item_page/item_page.dart';
+import 'package:final_project_flutter/pages/item_page/item_view.dart';
 import 'package:final_project_flutter/pages/profile_page/profile_page.dart';
 import 'package:final_project_flutter/pages/welcome_page/welcome_page.dart';
 import 'package:firebase_core/firebase_core.dart';
