@@ -1,4 +1,5 @@
 import 'package:final_project_flutter/pages/cart_page/cartpage_view.dart';
+import 'package:final_project_flutter/pages/favourite_page/favourite_view.dart';
 import 'package:final_project_flutter/pages/home_page/widgets/home_app_bar.dart';
 import 'package:final_project_flutter/pages/home_page/homepage_view.dart';
 import 'package:final_project_flutter/pages/profile_page/profile_page.dart';
@@ -10,7 +11,7 @@ class NavigationBarController extends GetxController {
 
   final List<Widget> pages = [
     MyHomePage(),
-    CartPage(),
+    FavouriteView(),
     ProfilePage(),
   ];
 

@@ -1,5 +1,7 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:final_project_flutter/core/colors/color.dart';
+import 'package:final_project_flutter/pages/cart_page/controller/cart_page_controller.dart';
+import 'package:final_project_flutter/pages/favourite_page/favourite_controller.dart';
 import 'package:final_project_flutter/pages/home_page/controller/home_page_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -9,104 +11,118 @@ class ItemsWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // final HomePageController h = Get.put(HomePageController());
-    final HomePageController h = Get.find<HomePageController>();
-    return GridView.count(
-      childAspectRatio: 0.68,
-      physics: NeverScrollableScrollPhysics(),
-      crossAxisCount: 2,
+    final HomePageController h = Get.put(HomePageController());
+
+    return GridView.builder(
+      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+        crossAxisCount: 2,
+        childAspectRatio: 0.64,
+        crossAxisSpacing: 10,
+        mainAxisSpacing: 10,
+      ),
       shrinkWrap: true,
-      children: [
-        for (int i = 14; i < h.homepageList.length; i++)
-          Container(
-            // height: 250,
-            /*Card*/
-            margin: EdgeInsets.only(left: 15, right: 15, top: 10, bottom: 10),
-            padding: EdgeInsets.symmetric(vertical: 8, horizontal: 10),
-            decoration: BoxDecoration(
-              color: AppColor.white,
-              borderRadius: BorderRadius.circular(20),
-            ),
-            child: Column(
-              children: [
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Container(
-                      padding: EdgeInsets.all(5),
-                      decoration: BoxDecoration(
-                        color: AppColor.blue,
-                        borderRadius: BorderRadius.circular(20),
-                      ),
-                      child: Text(
-                        '-50%',
-                        style: Theme.of(context).textTheme.labelSmall,
-                      ),
+      physics: NeverScrollableScrollPhysics(),
+      itemCount: h.homepageList.length > 6 ? 6 : h.homepageList.length,
+      itemBuilder: (context, index) {
+        final product = h.homepageList[index];
+        // final productCart = h.cartList[index];
+        return Container(
+          margin: EdgeInsets.all(10),
+          padding: EdgeInsets.only(right: 10, left: 10),
+          decoration: BoxDecoration(
+            color: AppColor.white,
+            borderRadius: BorderRadius.circular(20),
+          ),
+          child: Column(
+            children: [
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Container(
+                    padding: EdgeInsets.all(5),
+                    decoration: BoxDecoration(
+                      color: AppColor.blue,
+                      borderRadius: BorderRadius.circular(20),
                     ),
-                    Icon(
-                      Icons.favorite_border_outlined,
-                      color: AppColor.red,
-                    ),
-                  ],
-                ),
-                InkWell(
-                  onTap: () => Get.toNamed('/itemPage', arguments: {
-                    'image': h.homepageList[i]['image'].toString(),
-                    'title': h.homepageList[i]['title'].toString(),
-                    'description': h.homepageList[i]['description'].toString(),
-                    'price': h.homepageList[i]['price'].toString(),
-                  }),
-                  child: Container(
-                    child: CachedNetworkImage(
-                      imageUrl: h.homepageList[i]['image'],
-                      placeholder: (context, url) =>
-                          Center(child: CircularProgressIndicator()),
-                      errorWidget: (context, url, error) => Icon(Icons
-                          .error), // Widget hiển thị khi xảy ra lỗi khi tải hình ảnh
-                      width: 120, // Độ rộng của ảnh
-                      height: 120, // Độ cao của ảnh
+                    child: Text(
+                      '-50%',
+                      style: Theme.of(context).textTheme.labelSmall,
                     ),
                   ),
+                  Obx(() {
+                    bool isFavourite = h.isProductInFavorites(product);
+                    return IconButton(
+                      icon: Icon(
+                        isFavourite ? Icons.favorite : Icons.favorite_border,
+                        color: isFavourite ? Colors.red : null,
+                      ),
+                      onPressed: () {
+                        if (isFavourite) {
+                          h.removeProduct(product);
+                        } else {
+                          h.addProduct(product);
+                        }
+                      },
+                    );
+                  })
+                ],
+              ),
+              InkWell(
+                onTap: () => Get.toNamed('/itemPage', arguments: {
+                  'image': product.image,
+                  'title': product.title,
+                  'description': product.description,
+                  'price': product.price.toString(),
+                }),
+                child: CachedNetworkImage(
+                  imageUrl: product.image,
+                  placeholder: (context, url) =>
+                      Center(child: CircularProgressIndicator()),
+                  errorWidget: (context, url, error) => Icon(Icons.error),
+                  width: 120,
+                  height: 120,
                 ),
-                Container(
-                  // padding: EdgeInsets.only(bottom: 8),
-                  alignment: Alignment.centerLeft,
-                  child: Text(
-                    h.homepageList[i]['title'],
+              ),
+              Container(
+                alignment: Alignment.centerLeft,
+                child: Text(
+                  product.title,
+                  style: Theme.of(context)
+                      .textTheme
+                      .titleLarge
+                      ?.copyWith(fontSize: 18),
+                  maxLines: 2,
+                  overflow: TextOverflow.ellipsis,
+                ),
+              ),
+              Spacer(),
+              // Padding(
+              //   padding: const EdgeInsets.symmetric(vertical: 5.0),
+              //   child:
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(
+                    '\$${product.price}',
                     style: Theme.of(context)
                         .textTheme
                         .titleLarge
-                        ?.copyWith(fontSize: 18),
-                    maxLines: 2,
+                        ?.copyWith(fontSize: 17),
                   ),
-                ),
-                Spacer(),
-                Padding(
-                  padding: const EdgeInsets.symmetric(vertical: 10.0),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Text(
-                        '\$${h.homepageList[i]['price'].toString()}',
-                        style: Theme.of(context)
-                            .textTheme
-                            .titleLarge
-                            ?.copyWith(fontSize: 17),
-                      ),
-                      Icon(
-                        Icons.shopping_cart_checkout,
-                        color: AppColor.blue,
-                      )
-                    ],
-                  ),
-                )
-              ],
-            ),
+                  IconButton(
+                    icon: Icon(
+                      Icons.shopping_cart_checkout,
+                      color: AppColor.blue,
+                    ),
+                    onPressed: () => h.addProductToCart(product),
+                  )
+                ],
+              ),
+              // )
+            ],
           ),
-      ],
+        );
+      },
     );
-    // }
-    // },
-    // );
   }
 }

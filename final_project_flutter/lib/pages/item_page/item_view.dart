@@ -42,7 +42,9 @@ class ItemPage extends StatelessWidget {
         body: ListView(
           children: [
             ItemAppBar(),
+            /*Check */
             ItemImage(imageUrl: product['image']),
+            /*Fix */
             Arc(
               edge: Edge.TOP,
               arcType: ArcType.CONVEY,

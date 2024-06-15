@@ -2,6 +2,7 @@ import 'package:final_project_flutter/core/themes/theme.dart';
 import 'package:final_project_flutter/features/authetication/authentication_repository.dart';
 import 'package:final_project_flutter/firebase_options.dart';
 import 'package:final_project_flutter/pages/cart_page/cartpage_view.dart';
+import 'package:final_project_flutter/pages/favourite_page/favourite_view.dart';
 import 'package:final_project_flutter/pages/home_page/homepage_view.dart';
 import 'package:final_project_flutter/pages/item_page/item_view.dart';
 import 'package:final_project_flutter/pages/profile_page/profile_page.dart';
@@ -33,6 +34,7 @@ class MyApp extends StatelessWidget {
         GetPage(name: '/cartPage', page: () => CartPage()),
         GetPage(name: '/itemPage', page: () => ItemPage()),
         GetPage(name: '/profilePage', page: () => ProfilePage()),
+        GetPage(name: '/favouritePage', page: () => FavouriteView()),
       ],
       home: WelcomePage(),
     );

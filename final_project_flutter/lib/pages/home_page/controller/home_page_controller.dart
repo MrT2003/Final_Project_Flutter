@@ -1,55 +1,81 @@
-import 'package:dio/dio.dart';
-import 'package:flutter/material.dart';
+import 'package:final_project_flutter/core/services/api_service.dart';
+import 'package:final_project_flutter/pages/home_page/homepage_model.dart';
 import 'package:get/get.dart';
 
 class HomePageController extends GetxController {
   var isLoading = true.obs;
-  var homepageList = [].obs;
+  var favouriteList = <HomepageModel>[].obs;
+  var homepageList = <HomepageModel>[].obs;
+  var cartList = <HomepageModel>[].obs;
+  final ApiService _apiService = ApiService();
 
   @override
   void onInit() {
-    fetchProduct();
     super.onInit();
+    fetchProducts();
   }
 
-  void fetchProduct() async {
-    Dio dio = Dio();
+  Future<void> fetchProducts() async {
     try {
-      final response = await dio.get('https://fakestoreapi.com/products',
-          queryParameters: {'_limit': 10});
-      homepageList.value = response.data;
-      isLoading.value = false;
+      isLoading(true);
+      final products = await _apiService.fetchProduct();
+      homepageList.addAll(products
+          .map((product) => HomepageModel(
+                id: product.id,
+                title: product.title,
+                description: product.description,
+                price: product.price,
+                image: product.image,
+              ))
+          .toList());
     } catch (e) {
-      print("Failed to load data: $e");
+      print("Failed to load products: $e");
+    } finally {
+      isLoading(false);
     }
   }
 
-  Future<void> addProduct(
-      String title, String description, double price, String image) async {
-    Dio dio = Dio();
+  Future<void> addProduct(HomepageModel product) async {
     try {
-      final response = await dio.post(
-        'https://fakestoreapi.com/products',
-        data: {
-          'title': title,
-          'description': description,
-          'price': price,
-          'image': image,
-        },
-      );
-      homepageList.add(response.data);
+      if (!favouriteList.contains(product)) {
+        favouriteList.add(product);
+      }
     } catch (e) {
       print("Failed to add product: $e");
     }
   }
 
-  Future<void> removeProduct(int id) async {
-    Dio dio = Dio();
+  Future<void> removeProduct(HomepageModel product) async {
     try {
-      await dio.delete('https://fakestoreapi.com/products/$id');
-      homepageList.removeWhere((product) => product['id'] == id);
+      if (favouriteList.contains(product)) {
+        favouriteList.remove(product);
+      }
     } catch (e) {
       print("Failed to remove product: $e");
+    }
+  }
+
+  bool isProductInFavorites(HomepageModel product) {
+    return favouriteList.contains(product);
+  }
+
+  Future<void> addProductToCart(HomepageModel product) async {
+    try {
+      if (!cartList.contains(product)) {
+        cartList.add(product);
+      }
+    } catch (e) {
+      print("Failed to add product to cart: $e");
+    }
+  }
+
+  Future<void> removeProductFromCart(HomepageModel product) async {
+    try {
+      if (cartList.contains(product)) {
+        cartList.remove(product);
+      }
+    } catch (e) {
+      print("Failed to remove product from cart: $e");
     }
   }
 }

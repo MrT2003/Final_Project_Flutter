@@ -36,11 +36,11 @@ class BottomNavigationBar_2 extends StatelessWidget {
             ),
             CurvedNavigationBarItem(
               child: Icon(
-                CupertinoIcons.cart_fill,
+                Icons.favorite,
                 size: 30,
                 color: AppColor.white,
               ),
-              label: "Cart",
+              label: "Favourite",
               labelStyle: Theme.of(context).textTheme.bodyMedium,
             ),
             CurvedNavigationBarItem(

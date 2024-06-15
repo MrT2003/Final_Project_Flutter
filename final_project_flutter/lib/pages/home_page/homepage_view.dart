@@ -26,7 +26,6 @@ class MyHomePage extends StatelessWidget {
                 child: Column(
                   children: [
                     HomeAppBar(),
-                    //Tạo đường viên cong
                     Container(
                       padding: EdgeInsets.only(top: 15),
                       decoration: BoxDecoration(
@@ -45,7 +44,6 @@ class MyHomePage extends StatelessWidget {
                               optionsBuilder:
                                   (TextEditingValue textEditingValue) {
                                 if (textEditingValue.text.isEmpty) {
-                                  //Iterable là gì
                                   return Iterable<String>.empty();
                                 }
                                 return s.getSuggestions(textEditingValue.text);
@@ -123,18 +121,13 @@ class MyHomePage extends StatelessWidget {
                                               s.getProductByTitle(option);
                                           return ListTile(
                                             title: Text(option),
-                                            leading: product != null &&
-                                                    product['image'] != null
+                                            leading: product != null
                                                 ? ClipRRect(
                                                     borderRadius:
                                                         BorderRadius.circular(
                                                             50.0),
                                                     child: Image.network(
-                                                      h.homepageList.firstWhere(
-                                                          (element) =>
-                                                              element[
-                                                                  'title'] ==
-                                                              option)['image'],
+                                                      product.image,
                                                       height: 40,
                                                       width: 40,
                                                       fit: BoxFit.contain,
@@ -142,13 +135,13 @@ class MyHomePage extends StatelessWidget {
                                                   )
                                                 : null,
                                             onTap: () {
-                                              var selectedProduct = h
-                                                  .homepageList
-                                                  .firstWhere((element) =>
-                                                      element['title'] ==
-                                                      option);
-                                              Get.toNamed('/itemPage',
-                                                  arguments: selectedProduct);
+                                              var selectedProduct =
+                                                  s.getProductByTitle(option);
+                                              if (selectedProduct != null) {
+                                                Get.toNamed('/itemPage',
+                                                    arguments: selectedProduct
+                                                        .toJson());
+                                              }
                                             },
                                           );
                                         },

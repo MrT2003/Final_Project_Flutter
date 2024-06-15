@@ -1,29 +1,28 @@
 import 'package:final_project_flutter/core/colors/color.dart';
 import 'package:final_project_flutter/pages/cart_page/controller/cart_page_controller.dart';
 import 'package:final_project_flutter/pages/home_page/controller/home_page_controller.dart';
+import 'package:final_project_flutter/pages/home_page/homepage_model.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class CartController extends GetxController {
   final HomePageController h = Get.put(HomePageController());
-  final CartPageController cart = Get.put(CartPageController());
-  //Map
-  var items = <int, int>{}.obs;
-  //Mảng rỗng
-  var selectedProductId = [].obs;
 
-  void increment(int itemId) {
-    if (items.containsKey(itemId)) {
-      items[itemId] = items[itemId]! + 1;
+  var items = <int, int>{}.obs;
+  var selectedProductId = <int>[].obs;
+
+  void increment(HomepageModel product) {
+    if (items.containsKey(product.id)) {
+      items[product.id] = items[product.id]! + 1;
     } else {
-      items[itemId] = 1;
+      items[product.id] = 1;
     }
   }
 
-  void decrement(int itemId) {
-    if (items.containsKey(itemId) && items[itemId]! > 0) {
-      items[itemId] = items[itemId]! - 1;
-      if (items[itemId] == 0) {
+  void decrement(HomepageModel product) {
+    if (items.containsKey(product.id) && items[product.id]! > 0) {
+      items[product.id] = items[product.id]! - 1;
+      if (items[product.id] == 0) {
         Get.defaultDialog(
           title: "Confirmation",
           titleStyle: TextStyle(color: AppColor.blue),
@@ -33,27 +32,29 @@ class CartController extends GetxController {
           buttonColor: AppColor.blue,
           textCancel: "No",
           onConfirm: () {
-            cart.removeProductFromCart(itemId);
-            items.remove(itemId);
+            h.removeProductFromCart(product);
             Get.back();
           },
           onCancel: () {
-            increment(itemId);
+            increment(product);
           },
         );
       }
     }
   }
 
-  int getQuantity(int itemId) {
-    return items[itemId] ?? 0;
+  int getQuantity(HomepageModel product) {
+    return items[product.id] ?? 0;
   }
 
   double getTotalPrice() {
     double total = 0;
-    items.forEach((itemId, quantity) {
-      final itemPrice = h.homepageList[itemId]['price'];
-      total += itemPrice * quantity;
+    selectedProductId.forEach((itemId) {
+      if (items.containsKey(itemId)) {
+        final item =
+            h.homepageList.firstWhere((element) => element.id == itemId);
+        total += item.price * items[itemId]!;
+      }
     });
     return total;
   }

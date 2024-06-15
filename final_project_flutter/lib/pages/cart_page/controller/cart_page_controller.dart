@@ -1,54 +1,28 @@
-import 'package:dio/dio.dart';
-import 'package:get/get.dart';
+// import 'package:dio/dio.dart';
+// import 'package:final_project_flutter/pages/cart_page/cart_model.dart';
+// import 'package:get/get.dart';
 
-class CartPageController extends GetxController {
-  var isLoading = true.obs;
-  var cartList = [].obs;
+// class CartPageController extends GetxController {
+//   var isLoading = true.obs;
+//   var cartList = <CartModel>[].obs;
 
-  @override
-  void onInit() {
-    fetchProduct();
-    super.onInit();
-  }
+//   // Future<void> addProductToCart(CartModel product) async {
+//   //   try {
+//   //     if (!cartList.contains(product)) {
+//   //       cartList.add(product);
+//   //     }
+//   //   } catch (e) {
+//   //     print("Failed to add product: $e");
+//   //   }
+//   // }
 
-  void fetchProduct() async {
-    Dio dio = Dio();
-    try {
-      final response = await dio.get('https://fakestoreapi.com/products',
-          queryParameters: {'_limit': 10});
-      cartList.value = response.data;
-      isLoading.value = false;
-    } catch (e) {
-      print("Failed to load data: $e");
-    }
-  }
-
-  Future<void> addProduct(
-      String title, String description, double price, String image) async {
-    Dio dio = Dio();
-    try {
-      final response = await dio.post(
-        'https://fakestoreapi.com/products',
-        data: {
-          'title': title,
-          'description': description,
-          'price': price,
-          'image': image,
-        },
-      );
-      cartList.add(response.data);
-    } catch (e) {
-      print("Failed to add product: $e");
-    }
-  }
-
-  Future<void> removeProductFromCart(int id) async {
-    Dio dio = Dio();
-    try {
-      await dio.delete('https://fakestoreapi.com/products/$id');
-      cartList.removeWhere((product) => product['id'] == id);
-    } catch (e) {
-      print("Failed to remove product: $e");
-    }
-  }
-}
+//   // Future<void> removeProductFromCart(CartModel product) async {
+//   //   try {
+//   //     if (cartList.contains(product)) {
+//   //       cartList.remove(product);
+//   //     }
+//   //   } catch (e) {
+//   //     print("Failed to remove product: $e");
+//   //   }
+//   // }
+// }
