@@ -1,6 +1,5 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:final_project_flutter/core/colors/color.dart';
-import 'package:final_project_flutter/features/pages/favourite_page/favourite_controller.dart';
 import 'package:final_project_flutter/features/pages/home_page/controller/home_page_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -94,9 +93,6 @@ class ItemsWidget extends StatelessWidget {
                 ),
               ),
               Spacer(),
-              // Padding(
-              //   padding: const EdgeInsets.symmetric(vertical: 5.0),
-              //   child:
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
@@ -116,7 +112,6 @@ class ItemsWidget extends StatelessWidget {
                   )
                 ],
               ),
-              // )
             ],
           ),
         );

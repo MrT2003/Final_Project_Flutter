@@ -1,16 +1,14 @@
 import 'package:clippy_flutter/arc.dart';
-import 'package:final_project_flutter/core/colors/color.dart';
 import 'package:final_project_flutter/features/pages/item_page/widgets/color_options.dart';
 import 'package:final_project_flutter/features/pages/item_page/widgets/item_app_bar.dart';
 import 'package:final_project_flutter/features/pages/item_page/widgets/item_bottom_nav_bar.dart';
 import 'package:final_project_flutter/features/pages/item_page/widgets/item_detail.dart';
 import 'package:final_project_flutter/features/pages/item_page/widgets/item_image.dart';
-import 'package:final_project_flutter/features/pages/item_page/widgets/ratings.dart';
 import 'package:final_project_flutter/features/pages/item_page/widgets/size_options.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:flutter_rating_bar/flutter_rating_bar.dart';
+
 import 'package:get/get.dart';
 
 class ItemPage extends StatelessWidget {

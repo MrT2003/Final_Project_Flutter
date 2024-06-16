@@ -1,4 +1,3 @@
-import 'package:final_project_flutter/core/colors/color.dart';
 import 'package:final_project_flutter/features/pages/item_page/item_controller.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -6,6 +5,8 @@ import 'package:get/get.dart';
 
 class ItemBottomNavBar extends StatelessWidget {
   final ItemController itemc = Get.put(ItemController());
+
+  ItemBottomNavBar({super.key});
 
   @override
   Widget build(BuildContext context) {

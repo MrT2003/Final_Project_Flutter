@@ -1,4 +1,3 @@
-import 'package:final_project_flutter/core/colors/color.dart';
 import 'package:final_project_flutter/features/pages/cart_page/widgets/cart_app_bar.dart';
 import 'package:final_project_flutter/features/pages/cart_page/widgets/cart_bottom_nav_bar.dart';
 import 'package:final_project_flutter/features/pages/cart_page/widgets/cart_coupon.dart';

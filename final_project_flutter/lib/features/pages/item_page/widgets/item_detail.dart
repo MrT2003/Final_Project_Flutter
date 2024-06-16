@@ -38,10 +38,11 @@ class ItemDetail extends StatelessWidget {
           child: Text(
             description,
             textAlign: TextAlign.justify,
-            style: TextStyle(
-              color: AppColor.blue,
-              fontSize: 17,
-            ),
+            style: Theme.of(context).textTheme.bodySmall,
+            // TextStyle(
+            //   color: AppColor.blue,
+            //   fontSize: 17,
+            // ),
             maxLines: 4,
             overflow: TextOverflow.ellipsis,
           ),

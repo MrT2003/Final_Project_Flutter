@@ -20,11 +20,12 @@ class CartCoupon extends StatelessWidget {
         ),
         Text(
           "Add Coupon Code",
-          style: TextStyle(
-            color: AppColor.blue,
-            fontWeight: FontWeight.bold,
-            fontSize: 16,
-          ),
+          style: Theme.of(context).textTheme.bodyLarge,
+          // TextStyle(
+          //   color: AppColor.blue,
+          //   fontWeight: FontWeight.bold,
+          //   fontSize: 16,
+          // ),
         )
       ],
     );

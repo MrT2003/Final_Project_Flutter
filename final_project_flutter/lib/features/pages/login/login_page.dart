@@ -7,23 +7,6 @@ import 'package:final_project_flutter/features/pages/register/sign_up_controller
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-// void main() {
-//   runApp(MyApp());
-// }
-
-// class MyApp extends StatelessWidget {
-//   @override
-//   Widget build(BuildContext context) {
-//     return GetMaterialApp(
-//       title: 'Final Project Flutter',
-//       theme: ThemeData(
-//         primarySwatch: Colors.blue,
-//       ),
-//       home: LoginPage(),
-//     );
-//   }
-// }
-
 class LoginPage extends StatelessWidget {
   final SignUpController sign = Get.put(SignUpController());
   final _formKey = GlobalKey<FormState>();
@@ -40,9 +23,7 @@ class LoginPage extends StatelessWidget {
             children: [
               LoginHeader(),
               LoginTextfield(sign: sign, formKey: _formKey),
-              SizedBox(
-                height: 10,
-              ),
+              SizedBox(height: 10),
               LoginButton(formKey: _formKey, sign: sign),
               SignUpLink(),
             ],

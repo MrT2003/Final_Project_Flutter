@@ -43,7 +43,6 @@ class SignUpPage extends StatelessWidget {
               SignUpTextfield(formKey: _formKey, sign: sign),
               const SizedBox(height: 10),
               SignUpButton(formKey: _formKey, sign: sign),
-              // const SizedBox(height: 10),
               LoginLink(),
             ],
           ),

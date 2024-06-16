@@ -21,9 +21,7 @@ class LoginLink extends StatelessWidget {
           onPressed: () => Get.to(() => LoginPage()),
           child: Text(
             'Login now',
-            style: TextStyle(
-              color: AppColor.blue,
-            ),
+            style: TextStyle(color: AppColor.blue),
           ),
           style: TextButton.styleFrom(
             minimumSize: Size(0, 0),
