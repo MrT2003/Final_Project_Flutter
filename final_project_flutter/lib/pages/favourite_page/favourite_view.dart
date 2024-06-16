@@ -33,10 +33,9 @@ class FavouriteView extends StatelessWidget {
                 title: Text(product.title),
                 trailing: IconButton(
                   icon: Icon(Icons.remove),
-                  onPressed: () => home.removeProduct(product),
+                  onPressed: () => home.removeProductFromFavourite(product),
                 ),
               );
-              // );
             });
       }),
     );

@@ -1,5 +1,4 @@
 import 'package:final_project_flutter/core/colors/color.dart';
-import 'package:final_project_flutter/pages/cart_page/controller/cart_page_controller.dart';
 import 'package:final_project_flutter/pages/home_page/controller/home_page_controller.dart';
 import 'package:final_project_flutter/pages/home_page/homepage_model.dart';
 import 'package:flutter/material.dart';

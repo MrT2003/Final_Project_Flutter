@@ -1,6 +1,5 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:final_project_flutter/core/colors/color.dart';
-import 'package:final_project_flutter/pages/cart_page/controller/cart_page_controller.dart';
 import 'package:final_project_flutter/pages/favourite_page/favourite_controller.dart';
 import 'package:final_project_flutter/pages/home_page/controller/home_page_controller.dart';
 import 'package:flutter/material.dart';
@@ -58,9 +57,9 @@ class ItemsWidget extends StatelessWidget {
                       ),
                       onPressed: () {
                         if (isFavourite) {
-                          h.removeProduct(product);
+                          h.removeProductFromFavourite(product);
                         } else {
-                          h.addProduct(product);
+                          h.addProductToFavourite(product);
                         }
                       },
                     );

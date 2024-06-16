@@ -35,7 +35,7 @@ class HomePageController extends GetxController {
     }
   }
 
-  Future<void> addProduct(HomepageModel product) async {
+  Future<void> addProductToFavourite(HomepageModel product) async {
     try {
       if (!favouriteList.contains(product)) {
         favouriteList.add(product);
@@ -45,7 +45,7 @@ class HomePageController extends GetxController {
     }
   }
 
-  Future<void> removeProduct(HomepageModel product) async {
+  Future<void> removeProductFromFavourite(HomepageModel product) async {
     try {
       if (favouriteList.contains(product)) {
         favouriteList.remove(product);

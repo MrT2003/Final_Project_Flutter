@@ -1,7 +1,6 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:final_project_flutter/core/colors/color.dart';
 import 'package:final_project_flutter/pages/cart_page/controller/cart_controller.dart';
-import 'package:final_project_flutter/pages/cart_page/controller/cart_page_controller.dart';
 import 'package:final_project_flutter/pages/home_page/controller/home_page_controller.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -10,8 +9,6 @@ import 'package:get/get.dart';
 class CartItemSample extends StatelessWidget {
   final CartController cart = Get.put(CartController());
   final HomePageController h = Get.put(HomePageController());
-  // final CartPageController cartpagecontroller = Get.put(CartPageController());
-  // final CartController cartController = Get.find();
 
   @override
   Widget build(BuildContext context) {
