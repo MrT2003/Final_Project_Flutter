@@ -24,7 +24,6 @@ class ItemsWidget extends StatelessWidget {
       itemCount: h.homepageList.length > 6 ? 6 : h.homepageList.length,
       itemBuilder: (context, index) {
         final product = h.homepageList[index];
-        // final productCart = h.cartList[index];
         return Container(
           margin: EdgeInsets.all(10),
           padding: EdgeInsets.only(right: 10, left: 10),
