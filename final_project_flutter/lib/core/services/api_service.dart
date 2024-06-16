@@ -1,5 +1,5 @@
 import 'package:dio/dio.dart';
-import 'package:final_project_flutter/pages/favourite_page/model.dart';
+import 'package:final_project_flutter/features/pages/favourite_page/model.dart';
 
 class ApiService {
   final Dio _dio = Dio();
