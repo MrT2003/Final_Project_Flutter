@@ -16,6 +16,7 @@ class LoginButton extends StatelessWidget {
       padding: const EdgeInsets.symmetric(horizontal: 25.0),
       child: ElevatedButton(
           onPressed: () async {
+            Get.focusScope?.unfocus();
             if (formKey.currentState!.validate()) {
               var result = await sign.loginUser(
                   sign.email.text.trim(), sign.password.text.trim());

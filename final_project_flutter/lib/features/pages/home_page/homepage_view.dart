@@ -23,46 +23,50 @@ class MyHomePage extends StatelessWidget {
                 child: CircularProgressIndicator(),
               );
             } else {
-              return SingleChildScrollView(
-                child: Column(
-                  children: [
-                    const HomeAppBar(),
-                    Container(
-                      padding: const EdgeInsets.only(top: 15),
-                      decoration: const BoxDecoration(
-                        color: AppColor.background,
-                        borderRadius: BorderRadius.only(
-                          topLeft: Radius.circular(35),
-                          topRight: Radius.circular(35),
+              return GestureDetector(
+                onTap: () => Get.focusScope?.unfocus(),
+                child: SingleChildScrollView(
+                  child: Column(
+                    children: [
+                      const HomeAppBar(),
+                      Container(
+                        padding: const EdgeInsets.only(top: 15),
+                        decoration: const BoxDecoration(
+                          color: AppColor.background,
+                          borderRadius: BorderRadius.only(
+                            topLeft: Radius.circular(35),
+                            topRight: Radius.circular(35),
+                          ),
+                        ),
+                        child: Column(
+                          children: [
+                            SearchAutocomplete(),
+                            Container(
+                              alignment: Alignment.centerLeft,
+                              margin: const EdgeInsets.symmetric(
+                                vertical: 20,
+                                horizontal: 10,
+                              ),
+                              child: Text(
+                                'Categories',
+                                style: Theme.of(context).textTheme.titleMedium,
+                              ),
+                            ),
+                            const CategoriesWidget(),
+                            Container(
+                              alignment: Alignment.centerLeft,
+                              margin: const EdgeInsets.symmetric(
+                                  vertical: 20, horizontal: 10),
+                              child: Text('Best Selling',
+                                  style:
+                                      Theme.of(context).textTheme.titleMedium),
+                            ),
+                            const ItemsWidget(),
+                          ],
                         ),
                       ),
-                      child: Column(
-                        children: [
-                          SearchAutocomplete(),
-                          Container(
-                            alignment: Alignment.centerLeft,
-                            margin: const EdgeInsets.symmetric(
-                              vertical: 20,
-                              horizontal: 10,
-                            ),
-                            child: Text(
-                              'Categories',
-                              style: Theme.of(context).textTheme.titleMedium,
-                            ),
-                          ),
-                          const CategoriesWidget(),
-                          Container(
-                            alignment: Alignment.centerLeft,
-                            margin: const EdgeInsets.symmetric(
-                                vertical: 20, horizontal: 10),
-                            child: Text('Best Selling',
-                                style: Theme.of(context).textTheme.titleMedium),
-                          ),
-                          const ItemsWidget(),
-                        ],
-                      ),
-                    ),
-                  ],
+                    ],
+                  ),
                 ),
               );
             }

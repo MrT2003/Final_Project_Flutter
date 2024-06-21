@@ -35,16 +35,19 @@ class SignUpPage extends StatelessWidget {
     return SafeArea(
       child: Scaffold(
         backgroundColor: AppColor.background,
-        body: SingleChildScrollView(
-          child: Column(
-            children: [
-              SignUpHeader(),
-              const SizedBox(height: 30),
-              SignUpTextfield(formKey: _formKey, sign: sign),
-              const SizedBox(height: 10),
-              SignUpButton(formKey: _formKey, sign: sign),
-              LoginLink(),
-            ],
+        body: GestureDetector(
+          onTap: () => Get.focusScope?.unfocus(),
+          child: SingleChildScrollView(
+            child: Column(
+              children: [
+                SignUpHeader(),
+                const SizedBox(height: 30),
+                SignUpTextfield(formKey: _formKey, sign: sign),
+                const SizedBox(height: 10),
+                SignUpButton(formKey: _formKey, sign: sign),
+                LoginLink(),
+              ],
+            ),
           ),
         ),
       ),

@@ -18,15 +18,18 @@ class LoginPage extends StatelessWidget {
     return SafeArea(
       child: Scaffold(
         backgroundColor: AppColor.background,
-        body: SingleChildScrollView(
-          child: Column(
-            children: [
-              const LoginHeader(),
-              LoginTextfield(sign: sign, formKey: _formKey),
-              const SizedBox(height: 10),
-              LoginButton(formKey: _formKey, sign: sign),
-              const SignUpLink(),
-            ],
+        body: GestureDetector(
+          onTap: () => Get.focusScope?.unfocus(),
+          child: SingleChildScrollView(
+            child: Column(
+              children: [
+                const LoginHeader(),
+                LoginTextfield(sign: sign, formKey: _formKey),
+                const SizedBox(height: 10),
+                LoginButton(formKey: _formKey, sign: sign),
+                const SignUpLink(),
+              ],
+            ),
           ),
         ),
       ),
