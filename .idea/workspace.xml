@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="NONE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="be31c218-dbf4-4a7f-a2c4-6b44d469662c" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/final_project_flutter/lib/features/authetication/authentication_repository.dart" beforeDir="false" afterPath="$PROJECT_DIR$/final_project_flutter/lib/features/authetication/authentication_repository.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/final_project_flutter/lib/features/exceptions/signin_email_password_failure.dart" beforeDir="false" afterPath="$PROJECT_DIR$/final_project_flutter/lib/features/exceptions/signin_email_password_failure.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/final_project_flutter/lib/features/exceptions/signup_email_password_failure.dart" beforeDir="false" afterPath="$PROJECT_DIR$/final_project_flutter/lib/features/exceptions/signup_email_password_failure.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/final_project_flutter/lib/features/pages/favourite_page/favourite_controller.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/final_project_flutter/lib/features/pages/favourite_page/favourite_view.dart" beforeDir="false" afterPath="$PROJECT_DIR$/final_project_flutter/lib/features/pages/favourite_page/favourite_view.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/final_project_flutter/lib/features/pages/home_page/controller/search_controller.dart" beforeDir="false" afterPath="$PROJECT_DIR$/final_project_flutter/lib/features/pages/home_page/controller/search_controller.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/final_project_flutter/lib/features/pages/home_page/homepage_view.dart" beforeDir="false" afterPath="$PROJECT_DIR$/final_project_flutter/lib/features/pages/home_page/homepage_view.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/final_project_flutter/lib/features/pages/login/login_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/final_project_flutter/lib/features/pages/login/login_page.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/final_project_flutter/lib/features/pages/login/widget/login_button.dart" beforeDir="false" afterPath="$PROJECT_DIR$/final_project_flutter/lib/features/pages/login/widget/login_button.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/final_project_flutter/lib/features/pages/login/widget/login_textfield.dart" beforeDir="false" afterPath="$PROJECT_DIR$/final_project_flutter/lib/features/pages/login/widget/login_textfield.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/final_project_flutter/lib/features/pages/login/widget/sign_up_link.dart" beforeDir="false" afterPath="$PROJECT_DIR$/final_project_flutter/lib/features/pages/login/widget/sign_up_link.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/final_project_flutter/lib/features/pages/register/sign_up_controller.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/final_project_flutter/lib/features/pages/register/sign_up_view.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/final_project_flutter/lib/features/pages/register/widgets/login_link.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/final_project_flutter/lib/features/pages/register/widgets/signup_button.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/final_project_flutter/lib/features/pages/register/widgets/signup_header.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/final_project_flutter/lib/features/pages/register/widgets/signup_textfield.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/final_project_flutter/lib/features/pages/welcome_page/welcome_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/final_project_flutter/lib/features/pages/welcome_page/welcome_page.dart" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ClangdSettings">
+    <option name="formatViaClangd" value="false" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectColorInfo"><![CDATA[{
+  "customColor": "",
+  "associatedIndex": 0
+}]]></component>
+  <component name="ProjectId" id="2hzqlHGl5ZJuZpMUDF4lzBt0bLH" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.cidr.known.project.marker": "true",
+    "cf.first.check.clang-format": "false",
+    "cidr.known.project.marker": "true",
+    "dart.analysis.tool.window.visible": "false",
+    "git-widget-placeholder": "main",
+    "show.migrate.to.gradle.popup": "false"
+  }
+}]]></component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="be31c218-dbf4-4a7f-a2c4-6b44d469662c" name="Changes" comment="" />
+      <created>1718607405394</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1718607405394</updated>
+    </task>
+    <servers />
+  </component>
+</project>

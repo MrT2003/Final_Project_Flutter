@@ -7,22 +7,22 @@ class SignUpEmailAndPasswordFailure {
   factory SignUpEmailAndPasswordFailure.code(String code) {
     switch (code) {
       case 'weak-password':
-        return SignUpEmailAndPasswordFailure(
+        return const SignUpEmailAndPasswordFailure(
             'Please enter a stronger password ');
       case 'Invalid-email':
-        return SignUpEmailAndPasswordFailure(
+        return const SignUpEmailAndPasswordFailure(
             'Email is not valid or badly formatted');
       case 'email-already-in-use':
-        return SignUpEmailAndPasswordFailure(
+        return const SignUpEmailAndPasswordFailure(
             'An account already exists for that email');
       case 'operation-not-allowed':
-        return SignUpEmailAndPasswordFailure(
+        return const SignUpEmailAndPasswordFailure(
             'Operation is not allowed. Please contact support');
       case 'user-disabled':
-        return SignUpEmailAndPasswordFailure(
+        return const SignUpEmailAndPasswordFailure(
             'This user has been disabled. Please contact support for help');
       default:
-        return SignUpEmailAndPasswordFailure();
+        return const SignUpEmailAndPasswordFailure();
     }
   }
 }

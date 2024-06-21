@@ -10,7 +10,7 @@ class NavigationBarController extends GetxController {
   final List<Widget> pages = [
     MyHomePage(),
     FavouriteView(),
-    ProfilePage(),
+    const ProfilePage(),
   ];
 
   void changPage(int index) {

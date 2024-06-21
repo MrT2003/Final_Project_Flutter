@@ -7,16 +7,18 @@ class SignInEmailAndPasswordFailure {
   factory SignInEmailAndPasswordFailure.code(String code) {
     switch (code) {
       case 'invalid-email':
-        return SignInEmailAndPasswordFailure('Invalid email format');
+        return const SignInEmailAndPasswordFailure('Invalid email format');
       case 'user-disabled':
-        return SignInEmailAndPasswordFailure('User account is disabled');
+        return const SignInEmailAndPasswordFailure('User account is disabled');
       case 'user-not-found':
-        return SignInEmailAndPasswordFailure('No user found with this email');
+        return const SignInEmailAndPasswordFailure(
+            'No user found with this email');
       case 'wrong-password':
-        return SignInEmailAndPasswordFailure('Incorrect password');
+        return const SignInEmailAndPasswordFailure('Incorrect password');
       case 'user-disabled':
       default:
-        return SignInEmailAndPasswordFailure('Login failed. Please try again');
+        return const SignInEmailAndPasswordFailure(
+            'Login failed. Please try again');
     }
   }
 }

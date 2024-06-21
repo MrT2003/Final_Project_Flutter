@@ -3,7 +3,7 @@ import 'package:final_project_flutter/features/pages/login/widget/login_button.d
 import 'package:final_project_flutter/features/pages/login/widget/login_header.dart';
 import 'package:final_project_flutter/features/pages/login/widget/login_textfield.dart';
 import 'package:final_project_flutter/features/pages/login/widget/sign_up_link.dart';
-import 'package:final_project_flutter/features/pages/register/sign_up_controller.dart';
+import 'package:final_project_flutter/features/pages/signup/sign_up_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -21,11 +21,11 @@ class LoginPage extends StatelessWidget {
         body: SingleChildScrollView(
           child: Column(
             children: [
-              LoginHeader(),
+              const LoginHeader(),
               LoginTextfield(sign: sign, formKey: _formKey),
-              SizedBox(height: 10),
+              const SizedBox(height: 10),
               LoginButton(formKey: _formKey, sign: sign),
-              SignUpLink(),
+              const SignUpLink(),
             ],
           ),
         ),

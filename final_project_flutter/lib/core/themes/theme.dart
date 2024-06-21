@@ -24,15 +24,10 @@ class MyAppTheme {
           fontSize: 28, fontWeight: FontWeight.bold, color: Colors.black),
       labelSmall: TextStyle(
           color: AppColor.white, fontSize: 14, fontWeight: FontWeight.bold),
-      bodyMedium: TextStyle(fontSize: 18, color: AppColor.white),
-
-      /*---------------------------------- */
-      bodySmall: TextStyle(color: AppColor.blue, fontSize: 17),
       bodyLarge: TextStyle(
-        color: AppColor.blue,
-        fontWeight: FontWeight.bold,
-        fontSize: 16,
-      ),
+          color: AppColor.blue, fontWeight: FontWeight.bold, fontSize: 16),
+      bodyMedium: TextStyle(fontSize: 18, color: AppColor.white),
+      bodySmall: TextStyle(color: AppColor.blue, fontSize: 17),
     ),
     //icon
     iconTheme: const IconThemeData(

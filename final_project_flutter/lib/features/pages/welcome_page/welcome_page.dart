@@ -1,5 +1,5 @@
 import 'package:final_project_flutter/features/pages/login/login_page.dart';
-import 'package:final_project_flutter/features/pages/register/sign_up_view.dart';
+import 'package:final_project_flutter/features/pages/signup/sign_up_view.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -32,9 +32,7 @@ class WelcomePage extends StatelessWidget {
                       child: Text('Log in'.toUpperCase()),
                     ),
                   ),
-                  SizedBox(
-                    width: 10,
-                  ),
+                  SizedBox(width: 10),
                   Expanded(
                     child: ElevatedButton(
                       onPressed: () => Get.to(() => SignUpPage()),

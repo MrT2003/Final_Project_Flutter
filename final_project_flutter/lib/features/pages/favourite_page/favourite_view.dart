@@ -1,19 +1,17 @@
 import 'package:cached_network_image/cached_network_image.dart';
-import 'package:final_project_flutter/features/pages/favourite_page/favourite_controller.dart';
+import 'package:final_project_flutter/core/colors/color.dart';
 import 'package:final_project_flutter/features/pages/home_page/controller/home_page_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class FavouriteView extends StatelessWidget {
-  final FavouriteController favouriteController =
-      Get.put(FavouriteController());
   final HomePageController home = Get.put(HomePageController());
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Favourites'),
+        title: Text('Favourites', style: TextStyle(color: AppColor.blue)),
       ),
       body: Obx(() {
         return ListView.builder(

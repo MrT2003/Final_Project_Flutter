@@ -12,7 +12,7 @@ class AuthenticationRepository extends GetxController {
 
   @override
   void onReady() {
-    Future.delayed(Duration(seconds: 6));
+    Future.delayed(const Duration(seconds: 6));
     firebaseUser = Rx<User?>(_auth.currentUser);
     firebaseUser.bindStream(_auth.userChanges());
     ever(firebaseUser, _setInitialScreen);
@@ -31,7 +31,7 @@ class AuthenticationRepository extends GetxController {
           email: email, password: password);
       firebaseUser.value != null
           ? Get.offAll(() => BottomNavigationBar_2())
-          : Get.to(WelcomePage());
+          : Get.to(const WelcomePage());
     } on FirebaseAuthException catch (e) {
       final ex = SignUpEmailAndPasswordFailure.code(e.code);
       print('FIREBASE AUTH EXECEPTION - ${ex.message}');
@@ -62,6 +62,6 @@ class AuthenticationRepository extends GetxController {
   Future<void> logout() async {
     _auth.signOut();
     //Có cần offAll ở dưới không
-    Get.offAll(() => WelcomePage());
+    Get.offAll(() => const WelcomePage());
   }
 }
